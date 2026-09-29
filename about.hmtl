@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn more about Eric Atwood and his work as an Electrical Diagnostician at General Motors.">
+  <meta name="glean-artifact-type" content="web_design">
+  <title>About Eric | Hi, Get to Know Me</title>
+
+  <style>
+    :root {
+      --artifact-background: #ffffff;
+      --artifact-background-light: #f1f3f6;
+      --artifact-border-light: #e3e6ec;
+      --artifact-border-dark: #cdd2db;
+      --artifact-primary-brand: #3559e6;
+      --artifact-primary-hover: #2442b8;
+      --artifact-text-primary: #11141a;
+      --artifact-text-secondary: #5c6470;
+      --artifact-text-highlight: #e8eefc;
+      --artifact-focus: #7d98ff;
+      --artifact-shadow: 0 16px 40px rgba(17, 20, 26, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--artifact-background);
+      color: var(--artifact-text-primary);
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--artifact-focus);
+      outline-offset: 4px;
+    }
+
+    .shell {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .mono,
+    .eyebrow,
+    .meta-label {
+      font-family: "SF Mono", "IBM Plex Mono", Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow,
+    .meta-label {
+      color: var(--artifact-text-secondary);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--artifact-border-light);
+      background: var(--artifact-background);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--artifact-primary-brand);
+      border-radius: 50%;
+      color: var(--artifact-primary-brand);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--artifact-text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--artifact-primary-brand);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--artifact-text-primary);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 6.3rem);
+      font-weight: 300;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 550;
+    }
+
+    .page-hero {
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      gap: 72px;
+      align-items: end;
+      padding: 104px 0 92px;
+    }
+
+    .page-hero .eyebrow {
+      margin-bottom: 24px;
+    }
+
+    .page-hero p {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: var(--artifact-text-secondary);
+      font-size: 1.16rem;
+    }
+
+    .profile-card {
+      padding: 28px;
+      border: 1px solid var(--artifact-border-dark);
+      border-radius: 8px;
+      background: var(--artifact-background-light);
+      box-shadow: var(--artifact-shadow);
+    }
+
+    .profile-card .initials {
+      color: var(--artifact-primary-brand);
+      font-size: 5rem;
+      font-weight: 300;
+      line-height: 0.9;
+    }
+
+    .profile-card h3 {
+      margin-top: 28px;
+    }
+
+    .profile-card p {
+      margin: 10px 0 0;
+      color: var(--artifact-text-secondary);
+    }
+
+    .profile-line {
+      height: 1px;
+      margin: 24px 0;
+      background: var(--artifact-border-dark);
+    }
+
+    .profile-meta {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .meta-row span:last-child {
+      color: var(--artifact-text-secondary);
+      text-align: right;
+    }
+
+    .section {
+      padding: 88px 0;
+      border-top: 1px solid var(--artifact-border-light);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      max-width: 620px;
+      margin: 0;
+      color: var(--artifact-text-secondary);
+      font-size: 1.1rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--artifact-border-light);
+      background: var(--artifact-border-light);
+    }
+
+    .story-item {
+      min-height: 220px;
+      padding: 28px;
+      background: var(--artifact-background);
+    }
+
+    .story-item .mono {
+      color: var(--artifact-primary-brand);
+    }
+
+    .story-item h3 {
+      margin-top: 28px;
+    }
+
+    .story-item p {
+      margin: 14px 0 0;
+      color: var(--artifact-text-secondary);
+    }
+
+    .role-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .role-callout {
+      padding: 30px;
+      border: 1px solid var(--artifact-border-light);
+      background: var(--artifact-text-highlight);
+    }
+
+    .role-callout p {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .role-details {
+      display: grid;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-top: 1px solid var(--artifact-border-light);
+    }
+
+    .detail-row:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .detail-row p {
+      margin: 0;
+      color: var(--artifact-text-secondary);
+    }
+
+    .return-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 72px 0 92px;
+    }
+
+    .return-section p {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: var(--artifact-text-secondary);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--artifact-primary-brand);
+      border-radius: 6px;
+      background: var(--artifact-primary-brand);
+      color: var(--artifact-background);
+      text-decoration: none;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .button:hover {
+      background: var(--artifact-primary-hover);
+      border-color: var(--artifact-primary-hover);
+    }
+
+    .footer {
+      border-top: 1px solid var(--artifact-border-light);
+      padding: 22px 0 28px;
+      color: var(--artifact-text-secondary);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .shell {
+        width: min(100% - 28px, 680px);
+      }
+
+      .nav {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .page-hero,
+      .role-layout,
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .page-hero {
+        padding: 72px 0 68px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .return-section {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 60px 0 72px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand {
+        font-size: 14px;
+      }
+
+      .nav-links a:nth-child(2) {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 16vw, 4.6rem);
+      }
+
+      .meta-row,
+      .detail-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .meta-row span:last-child {
+        text-align: left;
+      }
+    }
+
+    @media print {
+      @page {
+        size: auto !important;
+      }
+
+      body {
+        margin: 0;
+        padding: 0.4in 0.6in;
+        background: #fff;
+        color: #11141a;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .shell {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
+      .site-header {
+        position: static !important;
+      }
+
+      section,
+      .page-hero,
+      .return-section {
+        break-inside: avoid;
+      }
+
+      .page-hero {
+        padding: 42px 0;
+      }
+
+      .section {
+        padding: 34px 0;
+      }
+
+      .profile-card {
+        box-shadow: none !important;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .button {
+        color: #11141a;
+        background: transparent;
+        border-color: #cdd2db;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="index.html" aria-label="Return to the homepage">
+        <span class="brand-mark">EA</span>
+        <span>Hi, Get to Know Me</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="active" href="about.html" aria-current="page">About</a>
+        <a href="index.html#work">My work</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell page-hero" aria-labelledby="page-title">
+      <div class="reveal">
+        <div class="eyebrow">About me / 02</div>
+        <h1 id="page-title">A little more about me.</h1>
+
+        <p>
+          This page goes a little deeper into who I am, where I work, and
+          what my current role at General Motors means to me.
+        </p>
+      </div>
+
+      <aside class="profile-card reveal" aria-label="Profile summary">
+        <div class="initials" aria-hidden="true">EA</div>
+        <h3>Eric Atwood</h3>
+        <p>Electrical Diagnostician</p>
+
+        <div class="profile-line"></div>
+
+        <div class="profile-meta">
+          <div class="meta-row">
+            <span class="meta-label">Team</span>
+            <span>Arlington Electrical Team</span>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-label">Location</span>
+            <span>Arlington ASSY</span>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-label">Company</span>
+            <span>General Motors</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" aria-labelledby="story-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">The basics / 01</div>
+            <h2 id="story-title">The short version.</h2>
+          </div>
+
+          <p>
+            I created this page to make it easier for people to understand
+            me and my current work without needing a long explanation.
+          </p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-item reveal">
+            <div class="mono">Who</div>
+            <h3>Eric Atwood</h3>
+            <p>
+              I’m building a clearer introduction to myself and my
+              professional background.
+            </p>
+          </article>
+
+          <article class="story-item reveal">
+            <div class="mono">Where</div>
+            <h3>Arlington ASSY</h3>
+            <p>
+              My work is connected to the Arlington assembly location and
+              its day-to-day operations.
+            </p>
+          </article>
+
+          <article class="story-item reveal">
+            <div class="mono">What</div>
+            <h3>Electrical diagnosis</h3>
+            <p>
+              My role is focused on understanding and diagnosing electrical
+              issues as part of the team.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="role-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">My current role / 02</div>
+            <h2 id="role-title">What I do at GM.</h2>
+          </div>
+
+          <p>
+            My work connects electrical problem-solving with teamwork and
+            clear communication. The goal is to understand the issue and
+            help move toward a reliable answer.
+          </p>
+        </div>
+
+        <div class="role-layout">
+          <div class="role-callout reveal">
+            <p>
+              “I work through the issue carefully and follow it back to its
+              source.”
+            </p>
+          </div>
+
+          <div class="role-details reveal">
+            <div class="detail-row">
+              <div class="meta-label">Diagnose</div>
+              <p>
+                I focus on identifying and understanding electrical concerns.
+              </p>
+            </div>
+
+            <div class="detail-row">
+              <div class="meta-label">Work together</div>
+              <p>
+                I’m part of the Arlington Electrical Team, working with
+                others toward reliable results.
+              </p>
+            </div>
+
+            <div class="detail-row">
+              <div class="meta-label">Keep learning</div>
+              <p>
+                The work reinforces the value of careful thinking, clear
+                communication, and following an issue through to its source.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell return-section" aria-labelledby="return-title">
+      <div class="reveal">
+        <div class="eyebrow">Keep exploring / 03</div>
+        <h2 id="return-title">Thanks for getting to know me.</h2>
+
+        <p>
+          The homepage gives the quick introduction. This page adds a little
+          more context about my role and the work I do at GM.
+        </p>
+      </div>
+
+      <a class="button reveal" href="index.html">Return home</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>Eric Atwood · General Motors</span>
+      <span class="mono">Hi, Get to Know Me</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var revealItems = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealItems.forEach(function (item) {
+          observer.observe(item);
+        });
+      } else {
+        revealItems.forEach(function (item) {
+          item.classList.add("visible");
+        });
+      }
+    }());
+  </script>
+
+  <script>
+    if (window.GleanBridge) {
+      window.GleanBridge.postMessage({
+        actionId: "export-pdf",
+        type: "glean-add-menu",
+        metadata: {
+          label: "Export as PDF",
+          icon: "export"
+        }
+      });
+
+      window.GleanBridge.onMessage("action", function (data) {
+        if (data.actionId === "export-pdf") {
+          window.print();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
